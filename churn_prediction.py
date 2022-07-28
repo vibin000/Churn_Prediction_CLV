@@ -1,10 +1,5 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Jul 28 08:20:24 2022
 
-@author: vibin.thottumgal
-"""
+# -*- coding: utf-8 -*-
 
 #%%
 
@@ -29,9 +24,9 @@ pd.options.mode.chained_assignment = None
 #LOADING THE DATASET
 #MEISTER
 
-licenses = pd.read_csv('/Users/vibin.thottumgal/Documents/Meister/licenses_paid.csv',sep = ',')
+licenses = pd.read_csv('Please provide path/licenses_paid.csv',sep = ',')
 #Product registrations
-activity = pd.read_csv('/Users/vibin.thottumgal/Documents/Meister/mt_activity.csv',sep=',')
+activity = pd.read_csv('Please provide path/Meister/mt_activity.csv',sep=',')
 
 
 #%%
@@ -42,7 +37,8 @@ class dataPreparation:
     """Takes in the licenses dataset and activity dataset and clean the datasets based on non_null team_ids as they are the
     connection feature between the two datasets.The date features will get tarnsformed into timestamp and recency
     variable for modelling. The plans feature column in the licesnses dataset will be binned into a smaller subset and finally will be one-hot encoded
-    into dummy variables.Finally the dataset will be aggregated on team_id taking "sum"" as aggregation function."""
+    into dummy variables.Finally the dataset will be aggregated on team_id taking "sum"" as aggregation function.The activity dataset will also be 
+    worked upon to create an aggregated final dataset with both monthly and total activity aggregated based on taem_id"""
     
     def __init__(self,dataset1,dataset2):
         self.dataset_license = dataset1
